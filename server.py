@@ -9,7 +9,14 @@ def sent_detector():
 
     response = emotion_detector(text_to_analyze)
 
-    return "For the given statement, the system response is 'anger': {'anger'}, 'disgust': {'disgust'}, 'fear': {'fear'}, 'joy': {'joy'}, 'sadness': {'sadness'}. The dominant emotion is {'dominant emotion'}.".format(**response)
+    anger = response['anger']
+    disgust = response['disgust']
+    fear = response['fear']
+    joy = response['joy']
+    sadness = response['sadness']
+    dominant = response['dominant emotion']
+
+    print(f"For the given statement, the system response is 'anger': {anger}, 'disgust': {disgust}, 'fear': {fear}, 'joy': {joy}, 'sadness': {sadness}. The dominant emotion is {dominant}.")
 
 @app.route("/")
 def render_index_page():
